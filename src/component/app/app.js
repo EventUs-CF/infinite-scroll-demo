@@ -1,7 +1,5 @@
 
 import React from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
-import Landing from '../landing/landing';
 import Scroll from '../scroll/scroll';
 
 
@@ -40,7 +38,7 @@ export default class App extends React.Component {
     this.fetchStories(value, 0);
   }
 
-  onPaginatedSearch = e =>
+  onPaginatedSearch = () =>
     this.fetchStories(this.input.value, this.state.page + 1);
 
   fetchStories = (value, page) =>
@@ -56,8 +54,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="page">
+      <h1>Infinite Scroll Spike</h1>
+      <p>Please search for a topic from Hacker News</p>
         <div className="interactions">
-        <Landing/>
           <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={(node) => {
               this.input = node;
